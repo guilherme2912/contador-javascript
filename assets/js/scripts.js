@@ -12,17 +12,29 @@ var currentNumber = 0;
 // }
 
 function subtrair(){
-    if(currentNumber <= 0) {
-        document.getElementById('subtrair').disable = true;
-        alert("Proibido número negativo");
-    } else {
+    if(currentNumber < 0) {
         currentNumber = currentNumber - 1;
         currentNumberWrapper.innerHTML = currentNumber;
+       
+    } else {
+        document.getElementById('currentNumber').style.color = 'red';
+        currentNumber = currentNumber - 1;
+        currentNumberWrapper.innerHTML = currentNumber;
+        // document.getElementById('subtrair').disable = true;
+        // alert("Proibido número negativo");
     }
 }
 
 function adicionar() {
-    currentNumber = currentNumber + 1;
-    currentNumberWrapper.innerHTML = currentNumber;
+    if(currentNumber < 0){
+        currentNumber = currentNumber + 1;
+        currentNumberWrapper.innerHTML = currentNumber;
+    } else if(currentNumber >= 0){
+        document.getElementById('currentNumber').style.color = 'black';
+        currentNumber = currentNumber + 1;
+        currentNumberWrapper.innerHTML = currentNumber;
+    }
 }
+
+
 
